@@ -1,0 +1,33 @@
+﻿@model IEnumerable<ProductReviewAuthentication.Models.ViewModels.ProductViewModel>
+
+@{ ViewBag.Title = "My Home Page"; }
+        <div class="card-header">
+            <h1 class="text-center">Welcome To Beebarh Products</h1><br>
+        </div>
+        <h3>Products</h3>
+        <div class="row">
+
+
+        @foreach (var product in Model)
+        {
+            <div class="col-lg-4 mb-5 col-sm-6">
+                <div  class="card">
+                    <h4 class="card header font-weight-bold text-center">
+                        @product.Name
+                    </h4>
+                    <div class="card-body">
+                        <a class="font-weight-bold">Description: </a>@product.Description<br />
+                        <a class="font-weight-bold">UserName: </a>@product.UserName<br />
+                        <a class="font-weight-bold">AverageRating: </a>@product.AverageRating<br />
+                        <a class="card-footer text-center font-weight-bold text-black-50" asp-action="Detail" asp-route-id="@product.Id">Review</a>
+                    </div>
+                </div>
+            </div>
+            
+        }
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
+    
+
+       

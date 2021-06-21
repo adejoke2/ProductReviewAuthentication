@@ -1,0 +1,35 @@
+﻿@model ProductReviewAuthentication.Models.ViewModels.SelectUserViewModel
+@{
+    Layout = "_DashBoardLayout";
+    ViewBag.Title = "Details"; 
+}
+
+@{ ViewBag.Title = "Create Review"; }
+
+    <div class="card-header">
+        <h1 class="text-center">Review</h1>
+    </div>
+
+    <div class="card-body">
+
+        <form method="post" asp-action="Create">
+
+            <div class="form-group">
+
+                <select asp-for="UserId" asp-items="ViewBag.users" class="form-control">
+                    <option selected>--Select User Name--</option>
+                </select>
+                <span asp-validation-for="UserId" class="text-danger"></span>
+            </div><br />
+
+            <div class="form-group">
+                <input type="submit" value="Next>>" class="btn btn-success"  />
+            </div>
+
+        </form>
+
+    </div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

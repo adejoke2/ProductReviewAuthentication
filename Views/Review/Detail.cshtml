@@ -1,0 +1,14 @@
+@model Review
+
+@{
+    ViewData["Title"] = "Review Detail";
+}
+
+<ul>
+    <li>Id: @Model.Id</li>
+    <li>Manufacturer: @ViewBag.userName</li>
+    <li>Created At: @Model.CreatedAt</li>
+    <li>Product Name: @Model.ProductId</li>
+    <li>Comment: @Model.Comment</li>
+    <li>Ratings: @Model.Ratings</li>
+</ul>

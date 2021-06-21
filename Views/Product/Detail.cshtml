@@ -1,0 +1,12 @@
+@model ProductReviewAuthentication.Models.ViewModels.ProductViewModel
+
+@{
+    ViewData["Title"] = "Product Detail";
+}
+
+<ul>
+    <li>Id: @Model.Id</li>
+    <li>Manufacturer: @ViewBag.userName</li>
+    <li>Product Name: @Model.Name</li>
+    <li>Review: @ViewBag.reviewList</li>
+</ul>

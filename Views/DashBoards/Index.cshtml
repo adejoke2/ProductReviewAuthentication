@@ -1,0 +1,43 @@
+﻿@{
+    Layout = "_DashBoardLayout";
+    ViewBag.Title = "DashBoard";
+}
+
+@model IEnumerable<ProductReviewAuthentication.Models.ViewModels.ProductViewModel>
+@{
+    ViewBag.Title = "List of Product";
+}
+
+
+<pre><h1 style="display:flex; justify-content: center;">WELCOME <span style=" color: orchid;"> <i>@ViewBag.UserName </i></span></h1></pre>
+
+<h6 style="display:flex; justify-content: flex-end;">Total Number of Products: @ViewBag.TotalProducts</h6>
+<h6>Total Number of Reviews: @ViewBag.TotalReviews</h6>
+<div class="container">
+    <div class="row">
+        @foreach (var product in Model)
+        {
+            <div class="col-4 mb-4 col-lg-4">
+                <div class="card">
+                    <div class="card-header ">
+                        <h5 class="card-title text-center" style="color:blue">@product.Name</h5>
+
+                        <div class="card-body">
+                            <div class="card" style="color:hotpink"></div>
+                            Manufacturer: @product.UserName<br /><br />
+                            Product description: @product.Description<br /><br />
+                            Average Rating: @product.AverageRating<br /><br />
+                            <div style="color:indigo">
+                                <a class="btn btn-success" asp-controller="Home" asp-action="Detail"
+                                asp-route-id="@product.Id">Detail</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+</div>
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

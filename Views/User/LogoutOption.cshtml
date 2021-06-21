@@ -1,0 +1,16 @@
+@* @model ProductReviewAuthentication.Models.DashboardVM *@
+@{
+    Layout = "_DashBoardLayout";
+}
+<div>
+    @*<h1>Welcome @Model.User.FullName</h1>
+        <h4>Your Id is: @Model.User.Id</h4>*@
+    <h4>Are you sure you want to Log Out?</h4>
+    <div>
+        <form method="get">
+            <a class="btn btn-primary" asp-controller="User" asp-action="Logout">Yes</a>
+            <a class="btn btn-primary" asp-controller="DashBoard" asp-action="Index">No</a>
+        </form>
+    </div>
+    @* <a asp-controller="Home" asp-action="LogOut"> <button>LogOut</button></a> *@
+</div>

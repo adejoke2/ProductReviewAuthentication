@@ -1,0 +1,41 @@
+﻿@model IEnumerable<ProductReviewAuthentication.Models.ViewModels.ProductViewModel>
+@{ 
+    Layout = "_DashBoardLayout";
+    ViewBag.Title = "Product Listing"; 
+}
+<h1 class="text-center">Welcome @ViewBag.userId </h1>
+
+<div class="card">
+    <div class="card-body">
+        <table class="table table-bordered">
+            <thead >
+                <tr>
+                    <th>Product Name</th>
+                    <th>Description</th>
+                    <th>Manufacturer</th>
+                    <th>Average Rating</th>
+                    <th>Action</th>
+
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var product in Model)
+                {
+                <tr >
+                    <td> @product.Name </td>
+                    <td> @product.Description </td>
+                    <td>@product.UserName </td>
+                    <td>@product.AverageRating</td>
+                    <td>
+                        <a class="btn btn-success" asp-action="Update" asp-route-id="@product.Id">Update </a>
+                        <a class="btn btn-danger" asp-action="Delete" asp-route-id="@product.Id">Delete</a>
+                    </td>
+                </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div><br>
+<div class="mb-3 border-right">
+    <a class="btn btn-success" asp-controller="Product" asp-action="Create">Create Product</a>
+</div>
